@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(.venv/Scripts/pip install:*)",
+      "Bash(.venv/Scripts/python:*)",
+      "Bash(pip install:*)",
+      "Bash(winget upgrade:*)",
+      "Bash(grep:*)",
+      "Bash(.venv/Scripts/pip list:*)",
+      "Bash(wmic OS get TotalVisibleMemorySize,FreePhysicalMemory,TotalVirtualMemorySize,FreeVirtualMemory /format:list 2>/dev/null)",
+      "Bash(powershell -Command \"Get-Process | Sort-Object WorkingSet -Descending | Select-Object -First 15 Name, @{N='RAM_MB';E={[math]::Round\\($_.WorkingSet/1MB,1\\)}}, CPU | Format-Table -AutoSize\" 2>/dev/null)",
+      "Bash(powershell -Command \"Get-Process | Sort-Object WorkingSet -Descending | Select-Object -First 15 Name,@{N='RAM_MB';E={[math]::Round\\($_.WorkingSet/1MB,1\\)}} | Format-Table -AutoSize\")",
+      "Bash(powershell -Command \"& {Get-Process | Sort-Object WorkingSet -Descending | Select-Object -First 15 | ForEach-Object { '{0,-30} {1,8} MB' -f $_.Name, [math]::Round\\($_.WorkingSet/1MB,1\\) }}\")",
+      "Bash(tasklist /FO CSV /NH 2>/dev/null | sort /R | head -20)",
+      "Bash(tasklist /FO TABLE /NH 2>/dev/null | head -30)",
+      "Bash(powershell -Command \"powercfg /getactivescheme\" 2>/dev/null || cmd /c \"powercfg /getactivescheme\" 2>/dev/null)",
+      "Bash(cmd /c \"powercfg /list\" 2>/dev/null)",
+      "Bash(node --version 2>/dev/null && python --version 2>/dev/null && python3 --version 2>/dev/null && git --version 2>/dev/null)",
+      "Bash(cmd /c \"powercfg /list\" 2>&1 | cat)",
+      "Bash(claude --version 2>/dev/null; npm list -g --depth=0 2>/dev/null | head -10)",
+      "Bash(wmic cpu:*)",
+      "Read(//c/Users/4bjm/.claude/**)",
+      "Bash(df -h /c /d 2>/dev/null || cmd /c \"wmic logicaldisk get DeviceID,FreeSpace,Size,Description\" 2>&1 | cat)",
+      "Bash(wsl --install -d Ubuntu 2>&1 | cat)",
+      "Bash(ping -n 2 8.8.8.8 2>&1 | cat && curl -s --max-time 5 https://raw.githubusercontent.com 2>&1 | head -5)",
+      "Bash(wsl --status 2>&1 | cat && wsl --list --verbose 2>&1 | cat)",
+      "Bash(wsl --status 2>/dev/null || echo \"WSL not available in this shell\")",
+      "Bash(wsl --list --verbose 2>/dev/null)",
+      "Bash(wsl -d Ubuntu-24.04 -- bash -c \"uname -a && python3 --version && node --version 2>/dev/null || echo 'node not installed' && npm --version 2>/dev/null || echo 'npm not installed'\" 2>/dev/null)",
+      "Bash(python:*)",
+      "Bash(find /c/Users/4bjm/Documents -name *Ответная* -o -name *Otvetnaya*)",
+      "Bash(find /c/Users/4bjm/Documents -name *.SLDASM -o -name *.SLDPRT -o -name *.FCStd)",
+      "Bash(ping:*)",
+      "Bash(sshpass:*)",
+      "Bash(where ssh:*)",
+      "Bash(ssh -V)",
+      "Bash(ipconfig)"
+    ]
+  }
+}
